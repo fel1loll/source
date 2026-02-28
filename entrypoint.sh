@@ -145,15 +145,7 @@ if [[ "${SOURCEMOD}" = 1 || "${SOURCEMOD}" == "true" ]]; then
     rm -rf "/home/container/${INSTALL_PATH}/tmpfiles"
     print_green "SourceMod and Metamod has been installed!\n"
 else
-    print_yellow "SOURCEMOD variable is set to false or 0. Skipping SourceMod and MetaMod installation..."
-
-    if [[ -d /home/container/${INSTALL_PATH}/addons ]]; then
-        print_yellow "Existing SourceMod install folder detected."
-        print_yellow "Renaming the folder /home/container/${INSTALL_PATH}/addons and ${INSTALL_PATH}/cfg/sourcemod to backup and disable it.\n"
-        mv "/home/container/${INSTALL_PATH}/addons" "/home/container/${INSTALL_PATH}/addons_disabled_$(date +%Y-%m-%d-%H:%M)"
-        mkdir -p "/home/container/${INSTALL_PATH}/cfg_disabled"
-        mv "/home/container/${INSTALL_PATH}/cfg/sourcemod" "/home/container/${INSTALL_PATH}/cfg_disabled/sourcemod_disabled_$(date +%Y-%m-%d-%H:%M)"
-    fi
+    print_yellow "SOURCEMOD variable is set to false or 0. Skipping Installation/Update..."
 fi
 
 cd /home/container || exit 1
